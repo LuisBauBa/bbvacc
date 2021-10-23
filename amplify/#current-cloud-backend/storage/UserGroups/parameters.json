@@ -1,0 +1,5 @@
+{
+    "tableName": "UserGroups",
+    "partitionKeyName": "EmailDomain",
+    "partitionKeyType": "S"
+}

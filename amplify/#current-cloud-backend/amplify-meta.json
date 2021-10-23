@@ -1,0 +1,187 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bbvacc-dev-90006-authRole",
+      "UnauthRoleArn": "arn:aws:iam::087248089145:role/amplify-bbvacc-dev-90006-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::087248089145:role/amplify-bbvacc-dev-90006-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+      "UnauthRoleName": "amplify-bbvacc-dev-90006-unauthRole",
+      "StackName": "amplify-bbvacc-dev-90006",
+      "StackId": "arn:aws:cloudformation:us-west-1:087248089145:stack/amplify-bbvacc-dev-90006/8ddb43f0-3409-11ec-81cb-06ec44f8e89f",
+      "AmplifyAppId": "d29ut36a2j33eu"
+    }
+  },
+  "auth": {
+    "bbvaccab1c4db8": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bbvacc-dev-90006-deployment/amplify-cfn-templates/auth/bbvaccab1c4db8-cloudformation-template.yml",
+        "logicalId": "authbbvaccab1c4db8"
+      },
+      "lastPushTimeStamp": "2021-10-23T14:39:36.541Z",
+      "output": {
+        "UserPoolId": "us-west-1_Jyx37YH3s",
+        "AppClientIDWeb": "5o4shbjr2uj01ptg1sgfro1sd2",
+        "AppClientID": "4k0220lm2d1l10g01v4e47pp2r",
+        "IdentityPoolId": "us-west-1:552b118c-b366-4157-bbe9-f1ab81757c28",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:087248089145:userpool/us-west-1_Jyx37YH3s",
+        "IdentityPoolName": "bbvaccab1c4db8_identitypool_ab1c4db8__dev",
+        "UserPoolName": "bbvaccab1c4db8_userpool_ab1c4db8"
+      },
+      "lastPushDirHash": "1wmq1t4RHuO2ikmFJsn5J7Pp4mw="
+    }
+  },
+  "storage": {
+    "UserGroups": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bbvacc-dev-90006-deployment/amplify-cfn-templates/storage/UserGroups-cloudformation-template.json",
+        "logicalId": "storageUserGroups"
+      },
+      "lastPushTimeStamp": "2021-10-23T14:39:36.541Z",
+      "output": {
+        "PartitionKeyName": "EmailDomain",
+        "Region": "us-west-1",
+        "Arn": "arn:aws:dynamodb:us-west-1:087248089145:table/UserGroups-dev",
+        "StreamArn": "arn:aws:dynamodb:us-west-1:087248089145:table/UserGroups-dev/stream/2021-10-23T14:37:21.023",
+        "PartitionKeyType": "S",
+        "Name": "UserGroups-dev"
+      },
+      "lastPushDirHash": "6I7uEJWaJzIMLdxKSgYjVl2ugRo="
+    }
+  },
+  "function": {
+    "bbvaccb16ffc24": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UserGroups",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2021-10-23T14:39:36.541Z",
+      "lastBuildTimeStamp": "2021-10-23T14:36:59.008Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-10-23T14:36:59.111Z",
+      "distZipFilename": "bbvaccb16ffc24-6c616252544945593278-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+        "s3Key": "amplify-builds/bbvaccb16ffc24-6c616252544945593278-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bbvacc-dev-90006-deployment/amplify-cfn-templates/function/bbvaccb16ffc24-cloudformation-template.json",
+        "logicalId": "functionbbvaccb16ffc24"
+      },
+      "output": {
+        "Region": "us-west-1",
+        "Arn": "arn:aws:lambda:us-west-1:087248089145:function:bbvaccb16ffc24-dev",
+        "Name": "bbvaccb16ffc24-dev",
+        "LambdaExecutionRole": "bbvaccLambdaRolee2fbfc06-dev"
+      },
+      "lastPushDirHash": "xes5yKKTTHcLRsWSpDkCRs6xLWA="
+    },
+    "PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UserGroups",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2021-10-23T14:39:36.541Z",
+      "lastBuildTimeStamp": "2021-10-23T14:36:59.010Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-10-23T14:36:59.121Z",
+      "distZipFilename": "PostConfirmation-4d785365774e73736e68-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+        "s3Key": "amplify-builds/PostConfirmation-4d785365774e73736e68-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bbvacc-dev-90006-deployment/amplify-cfn-templates/function/PostConfirmation-cloudformation-template.json",
+        "logicalId": "functionPostConfirmation"
+      },
+      "output": {
+        "Region": "us-west-1",
+        "Arn": "arn:aws:lambda:us-west-1:087248089145:function:PostConfirmation-dev",
+        "Name": "PostConfirmation-dev",
+        "LambdaExecutionRole": "bbvaccLambdaRole0c888e6c-dev"
+      },
+      "lastPushDirHash": "l1NtjQW8IE+7N0JGO7umPLZcz5Y="
+    },
+    "PreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UserGroups",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2021-10-23T14:39:36.541Z",
+      "lastBuildTimeStamp": "2021-10-23T14:36:59.010Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-10-23T14:36:59.127Z",
+      "distZipFilename": "PreSignup-4e555769645834685330-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+        "s3Key": "amplify-builds/PreSignup-4e555769645834685330-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bbvacc-dev-90006-deployment/amplify-cfn-templates/function/PreSignup-cloudformation-template.json",
+        "logicalId": "functionPreSignup"
+      },
+      "output": {
+        "Region": "us-west-1",
+        "Arn": "arn:aws:lambda:us-west-1:087248089145:function:PreSignup-dev",
+        "Name": "PreSignup-dev",
+        "LambdaExecutionRole": "bbvaccLambdaRolee64dc3a6-dev"
+      },
+      "lastPushDirHash": "lfL9t7cc6KLaawfKbsy+ZzfuPgU="
+    }
+  }
+}

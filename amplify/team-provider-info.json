@@ -1,0 +1,34 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bbvacc-dev-90006-authRole",
+      "UnauthRoleArn": "arn:aws:iam::087248089145:role/amplify-bbvacc-dev-90006-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::087248089145:role/amplify-bbvacc-dev-90006-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+      "UnauthRoleName": "amplify-bbvacc-dev-90006-unauthRole",
+      "StackName": "amplify-bbvacc-dev-90006",
+      "StackId": "arn:aws:cloudformation:us-west-1:087248089145:stack/amplify-bbvacc-dev-90006/8ddb43f0-3409-11ec-81cb-06ec44f8e89f",
+      "AmplifyAppId": "d29ut36a2j33eu"
+    },
+    "categories": {
+      "auth": {
+        "bbvaccab1c4db8": {}
+      },
+      "function": {
+        "bbvaccb16ffc24": {
+          "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+          "s3Key": "amplify-builds/bbvaccb16ffc24-6c616252544945593278-build.zip"
+        },
+        "PostConfirmation": {
+          "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+          "s3Key": "amplify-builds/PostConfirmation-4d785365774e73736e68-build.zip"
+        },
+        "PreSignup": {
+          "deploymentBucketName": "amplify-bbvacc-dev-90006-deployment",
+          "s3Key": "amplify-builds/PreSignup-4e555769645834685330-build.zip"
+        }
+      }
+    }
+  }
+}
